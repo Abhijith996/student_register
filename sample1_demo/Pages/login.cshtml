@@ -1,0 +1,83 @@
+﻿@page
+@model sample1_demo.Pages.loginModel
+@{
+     ViewData["Title"] = "Login";
+}
+
+<style>
+
+
+    body {
+        /* Light yellow to light green gradient */
+        background: linear-gradient(to right, lightyellow, lightgreen);
+        margin: 0;
+        height: 100vh;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* full screen height */
+        background: linear-gradient(to right, lightyellow, lightgreen); /* page background */
+    }
+
+    .login-box {
+        /* light green form */
+        padding: 30px;
+        border-radius: 10px;
+       
+        text-align: center;
+        width: 300px;
+    }
+
+        .login-box input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        .login-box button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            .login-box button:hover {
+                background-color: #45a049;
+            }
+
+        .login-box input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 3px solid #000; 
+            border-radius: 5px; 
+            font-size: 14px;
+
+        }
+
+</style>
+<div class="login-container">
+    <form method="post" class="login-box">
+        <h2>Login</h2>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="Username" />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Password" />
+        </div>
+        <button type="submit">Login</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <p>@Model.Message</p>
+    }
+</div>

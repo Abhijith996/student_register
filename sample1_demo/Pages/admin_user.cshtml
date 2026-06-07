@@ -1,0 +1,76 @@
+﻿@page
+@model sample1_demo.Pages.admin_userModel
+@{
+    ViewData["Title"] = "Admin User";
+}
+
+<style>
+    body {
+        background-color: lightgreen;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    nav {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    aside {
+        width: 200px;
+        background: #f4f4f4;
+        padding: 20px;
+        display: none; /* ✅ Hidden by default */
+    }
+
+    .search-box {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #000;
+        width: 300px;
+        font-size: 14px;
+    }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #2e7d32;
+        }
+
+    .layout {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+    }
+
+    nav {
+        justify-content: flex-end;
+    }
+
+        nav div:first-child {
+            margin-left: auto;
+        }
+</style>
+
+
+
+
+<!-- Layout -->
+<div class="layout">
+    
+    <!-- Main Content -->
+    <main style="flex-grow:1; padding:20px;">
+        <h2>Admin User</h2>
+        <input type="text" class="search-box" placeholder="Search by ID..." />
+    </main>
+</div>
+
+<script>
+    function toggleMenu() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.style.display = sidebar.style.display === "none" ? "block" : "none";
+    }
+</script>

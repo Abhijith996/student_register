@@ -1,0 +1,66 @@
+﻿@page
+@model sample1_demo.Pages.user_addModel
+@{
+    Layout = "_Layout";
+}
+
+
+<h2>User Registration</h2>
+<style>
+    .form-submit {
+        display: flex;
+        justify-content: center; /* centers horizontally */
+        margin-top: 20px; /* adds spacing above */
+    }
+
+    .btn-success {
+        padding: 10px 30px; /* makes button look nicer */
+        font-size: 16px;
+    }
+        /* Reduce textbox width */
+        .short-input {
+            width: 250px; /* smaller text box */
+        }
+
+        .medium-input {
+            width: 350px; /* medium size */
+        }
+
+        textarea.form-control {
+            width: 400px; /* control textarea width */
+            height: 80px; /* adjust height */
+        }
+        /* Center the submit button */
+        .form-submit {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+</style>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="Name">Full Name:</label>
+        <input type="text" id="Name" name="Name" class="form-control short-input" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Aadhar">Aadhar Number:</label>
+        <input type="text" id="Aadhar" name="Aadhar" class="form-control short-input" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" name="Email" class="form-control medium-input" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Mobile">Mobile Number:</label>
+        <input type="tel" id="Mobile" name="Mobile" class="form-control short-input" required />
+    </div>
+
+    <div class="form-submit">
+        <button type="submit" class="btn btn-success">Register</button>
+    </div>
+</form>
+
+   

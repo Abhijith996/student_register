@@ -1,0 +1,23 @@
+﻿@page
+@model sample1_demo.loginModel
+@{
+    ViewData["Title"] = "login";
+}
+<h2>Login</h2>
+
+<form method="post">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="Username" />
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="Password" />
+    </div>
+    <button type="submit">Login</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p>@Model.Message</p>
+}

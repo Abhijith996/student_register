@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> </title>
+    <style>
+            body {
+                background-color: lightgreen;
+                !important;
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            .layout {
+                background-color: lightgreen;
+            }
+
+            nav {
+                background-color: #333;
+                color: white;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            aside {
+                width: 200px;
+                background: #f4f4f4;
+                padding: 20px;
+                display: none; /* ✅ Hidden by default */
+            }
+
+            .search-box {
+                background-color: #fff;
+                padding: 10px;
+                border-radius: 8px;
+                border: 2px solid #000;
+                width: 300px;
+                font-size: 14px;
+            }
+
+                .search-box:focus {
+                    outline: none;
+                    border-color: #2e7d32;
+                }
+
+            .layout {
+                display: flex;
+                flex-direction: row;
+                height: 100vh;
+            }
+
+            nav {
+                justify-content: flex-end;
+            }
+
+                nav div:first-child {
+                    margin-left: auto;
+                }
+    </style>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/sample1_demo.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background:#333; color:white;">
+            <div class="container-fluid">
+
+                <!-- ✅ Left corner: Menu -->
+                <div class="position: absolute; left: 10px;">
+                    <button onclick="toggleMenu()"
+                            style="background:#2e7d32; color:white; border:none; padding:8px 12px; cursor:pointer;">
+                        Menu
+                    </button>
+                </div>
+
+                <!-- ✅ Right corner: Logout -->
+                <div class="ms-auto">
+                    <a href="/logout" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <!-- ✅ Custom Layout with Sidebar + Main -->
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <ul style="list-style:none; padding:0;">
+                <li><a asp-page="/User_Add">Add User</a></li>
+                <li><a href="#">Delete User</a></li>
+                <li><a href="#">Edit User</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main style="flex-grow:1; padding:20px;">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - sample1_demo - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script>
+            function toggleMenu() {
+                const sidebar = document.getElementById("sidebar");
+                sidebar.style.display = sidebar.style.display === "none" ? "block" : "none";
+            }
+    </script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
