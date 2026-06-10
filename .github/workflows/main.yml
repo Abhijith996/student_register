@@ -21,5 +21,8 @@ jobs:
 
       - name: Publish Project
         run: dotnet publish --configuration Release --output publish
+
       - name: Deploy to IIS Folder
-        run: robocopy publish "D:\deploye" /E
+        run: |
+          robocopy publish "D:\deploye" /E
+          IF %ERRORLEVEL% LEQ 7 exit /B 0
